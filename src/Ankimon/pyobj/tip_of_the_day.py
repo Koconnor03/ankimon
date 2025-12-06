@@ -88,9 +88,9 @@ def show_tip_of_the_day():
 
     last_tip_index = settings.get("misc.last_tip_index")
     if last_tip_index is None:
-        last_tip_index = 0
-
-    next_tip_index = (last_tip_index + 1) % len(tips)
+        next_tip_index = 0
+    else:
+        next_tip_index = (last_tip_index + 1) % len(tips)
 
     dialog = TipOfTheDayDialog(tips[next_tip_index], next_tip_index, len(tips), mw)
     dialog.exec()
